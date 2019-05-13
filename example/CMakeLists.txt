@@ -11,3 +11,5 @@ add_subdirectory(takeoff_land)
 add_subdirectory(transition_vtol_fixed_wing)
 add_subdirectory(battery)
 add_subdirectory(multiple_drones)
+
+link_directories(/usr/local/lib)
