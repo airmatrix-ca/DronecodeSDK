@@ -33,6 +33,10 @@
 #include <future>
 #include <iostream>
 #include <memory>
+#include <string>
+#include <chrono>
+#include <ctime>
+#include <fstream>
 
 #define ERROR_CONSOLE_TEXT "\033[31m" // Turn text on console red
 #define TELEMETRY_CONSOLE_TEXT "\033[34m" // Turn text on console blue
@@ -60,6 +64,15 @@ void usage(std::string bin_name)
               << "For example, to connect to the simulator use URL: udp://:14540" << std::endl;
 }
 
+std::string getTimeStr(){
+    time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+
+    std::string s(30, '\0');
+    strftime(&s[0], s.size(), "%Y-%m-%d %H:%M:%S", std::localtime(&now));
+    return s;
+}
+
+
 int main(int argc, char **argv)
 {
     DronecodeSDK dc;
@@ -67,8 +80,9 @@ int main(int argc, char **argv)
     ConnectionResult connection_result;
 
     // Locate path of QGC Sample plan
-    std::string qgc_plan = "../../../plugins/mission/qgroundcontrol_sample.plan";
+    std::string qgc_plan = "../../../plugins/mission/test.plan";
 
+   
     if (argc != 2 && argc != 3) {
         usage(argv[0]);
         return 1;
@@ -111,6 +125,22 @@ int main(int argc, char **argv)
     auto action = std::make_shared<Action>(system);
     auto mission = std::make_shared<Mission>(system);
     auto telemetry = std::make_shared<Telemetry>(system);
+
+
+    const Telemetry::Result set_rate_result = telemetry->set_rate_position(1.0);
+    if(set_rate_result != Telemetry::Result::SUCCESS){
+        std::cout << "Setting rate failed: " << std::endl;
+        return 1; 
+    }
+
+    std::ofstream myFile; 
+    myFile.open("testData.csv");
+    myFile << "Time, Altitude, Latitude, Longitude, Absolute_Altitude, \n";
+
+    // Setting up the callback to monitor lat and longitude
+    telemetry->position_async([&](Telemetry::Position position){
+        myFile << getTimeStr() << "," << position.relative_altitude_m << "," << position.latitude_deg << "," << position.longitude_deg << "," << position.absolute_altitude_m << std::endl; 
+    });
 
     while (!telemetry->health_all_ok()) {
         std::cout << "Waiting for system to be ready" << std::endl;
