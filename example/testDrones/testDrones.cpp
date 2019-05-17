@@ -206,17 +206,9 @@ void complete_mission(std::string qgc_plan, System &system)
     // Wait for some time.
     sleep_for(seconds(5));
 
-    {
-        // Mission complete. Command RTL to go home.
-        std::cout << "Commanding RTL..." << std::endl;
-        const Action::Result result = action->return_to_launch();
-        if (result != Action::Result::SUCCESS) {
-            std::cout << "Failed to command RTL (" << Action::result_str(result) << ")"
-                      << std::endl;
-        } else {
-            std::cout << "Commanded RTL." << std::endl;
-        }
-    }
+    // Mission complete. Landing now
+      std::cout << "Landing at last node..." << std::endl;
+
 }
 
 inline void handle_action_err_exit(Action::Result result, const std::string &message)

@@ -1,0 +1,189 @@
+{
+        "fileType": "Plan",
+        "geoFence": {
+            "polygon": [
+            ],
+            "version": 1
+        },
+        "groundStation": "QGroundControl",
+        "mission": {
+            "cruiseSpeed": 15,
+            "firmwareType": 12,
+            "hoverSpeed": 5,
+            "items": [
+            {
+                "autoContinue": true,
+            "command": 22,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6526736,
+                -79.3872347,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6527749,
+                -79.3872794,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6528738,
+                -79.3873218,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6529787,
+                -79.3873660,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6530903,
+                -79.3874133,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6531817,
+                -79.3874529,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6532776,
+                -79.3874950,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6533754,
+                -79.3875383,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6534750,
+                -79.3875833,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 21,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6566395,
+                -79.3889625,
+                15
+            ],
+            "type": "SimpleItem"
+            }
+        ],
+            "plannedHomePosition": [
+                43.6532,
+                -79.3832,
+                488.103
+            ],
+            "vehicleType": 2,
+            "version": 2
+        },
+        "rallyPoints": {
+            "points": [
+            ],
+            "version": 1
+        },
+        "version": 1
+    }

@@ -80,7 +80,7 @@ int main(int argc, char **argv)
     ConnectionResult connection_result;
 
     // Locate path of QGC Sample plan
-    std::string qgc_plan = "../../../plugins/mission/test.plan";
+    std::string qgc_plan = "../../../plugins/mission/north.plan";
 
    
     if (argc != 2 && argc != 3) {
@@ -204,17 +204,17 @@ int main(int argc, char **argv)
     // Wait for some time.
     sleep_for(seconds(5));
 
-    {
-        // Mission complete. Command RTL to go home.
-        std::cout << "Commanding RTL..." << std::endl;
-        const Action::Result result = action->return_to_launch();
-        if (result != Action::Result::SUCCESS) {
-            std::cout << "Failed to command RTL (" << Action::result_str(result) << ")"
-                      << std::endl;
-        } else {
-            std::cout << "Commanded RTL." << std::endl;
-        }
-    }
+    // {
+    //     // Mission complete. Command RTL to go home.
+    //     std::cout << "Commanding RTL..." << std::endl;
+    //     const Action::Result result = action->return_to_launch();
+    //     if (result != Action::Result::SUCCESS) {
+    //         std::cout << "Failed to command RTL (" << Action::result_str(result) << ")"
+    //                   << std::endl;
+    //     } else {
+    //         std::cout << "Commanded RTL." << std::endl;
+    //     }
+    // }
 
     return 0;
 }
