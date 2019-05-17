@@ -25,7 +25,7 @@ using namespace dronecode_sdk;
 using namespace std::this_thread;
 using namespace std::chrono;
 
-static void complete_mission(System &system);
+static void complete_mission(std::string qgc_plan, System &system);
 
 #define ERROR_CONSOLE_TEXT "\033[31m" // Turn text on console red
 #define TELEMETRY_CONSOLE_TEXT "\033[34m" // Turn text on console blue
@@ -66,9 +66,10 @@ int main(int argc, char *argv[])
     }
 
     DronecodeSDK dc;
-   
+    int total_ports = argc/2 + 1;       // There must be half udp ports and half paths to plan files
+
     // the loop below adds the number of ports the sdk monitors.
-    for (int i = 1; i < argc; ++i) {
+    for (int i = 1; i < total_ports; ++i) {
         ConnectionResult connection_result = dc.add_any_connection(argv[i]);
         if (connection_result != ConnectionResult::SUCCESS) {
             std::cerr << ERROR_CONSOLE_TEXT
@@ -95,13 +96,19 @@ int main(int argc, char *argv[])
                   << std::endl;
         return 1;
     }
+    // Locate path of QGC Sample plan
+    //std::string qgc_plan = "../../../plugins/mission/test.plan";
+    //std::cout << "Importing mission from mission plan: " << qgc_plan << std::endl;
 
     std::vector<std::thread> threads;
 
+    int numberOfPaths = total_ports;
     for (auto uuid : dc.system_uuids()) {
         System &system = dc.system(uuid);
-        std::thread t(&complete_mission, std::ref(system));
-        threads.push_back(std::move(t));
+        // complete_mission(std::ref(qgc_plan), std::ref(system));
+        std::thread t(&complete_mission, argv[numberOfPaths], std::ref(system));
+        threads.push_back(std::move(t));        // Instead of copying, move t into the vector (less expensive)
+        numberOfPaths += 1;
     }
 
     for (auto &t : threads) {
@@ -110,7 +117,8 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-void complete_mission(System &system)
+
+void complete_mission(std::string qgc_plan, System &system)
 {
     auto telemetry = std::make_shared<Telemetry>(system);
     auto action = std::make_shared<Action>(system);
@@ -119,15 +127,29 @@ void complete_mission(System &system)
     // We want to listen to the altitude of the drone at 1 Hz.
     const Telemetry::Result set_rate_result = telemetry->set_rate_position(1.0);
 
+    if (set_rate_result != Telemetry::Result::SUCCESS) {
+        std::cerr << ERROR_CONSOLE_TEXT
+                  << "Setting rate failed:" << Telemetry::result_str(set_rate_result)
+                  << NORMAL_CONSOLE_TEXT << std::endl;
+        return;
+    }
+    
+    std::cout << "Importing mission from mission plan: " << qgc_plan << std::endl;
+
+    std::ofstream myFile; 
+    myFile.open("testData.csv");
+    myFile << "Time, Vehicle_ID, Altitude, Latitude, Longitude, Absolute_Altitude, \n";
+
+    // Setting up the callback to monitor lat and longitude
+    telemetry->position_async([&](Telemetry::Position position){
+        myFile << getTimeStr() << "," << system.get_uuid() << "," << position.relative_altitude_m << "," << position.latitude_deg << "," << position.longitude_deg << "," << position.absolute_altitude_m << std::endl; 
+    });
+
     // Check if vehicle is ready to arm
     while (telemetry->health_all_ok() != true) {
         std::cout << "Vehicle is getting ready to arm" << std::endl;
         sleep_for(seconds(1));
     }
-
-    // Locate path of QGC Sample plan
-    std::string qgc_plan = "../../../plugins/mission/test.plan";
-    std::cout << "Importing mission from mission plan: " << qgc_plan << std::endl;
 
     // Import Mission items from QGC plan
     Mission::mission_items_t mission_items;
@@ -224,3 +246,4 @@ inline void handle_connection_err_exit(ConnectionResult result, const std::strin
         exit(EXIT_FAILURE);
     }
 }
+

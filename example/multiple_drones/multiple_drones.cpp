@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     for (auto uuid : dc.system_uuids()) {
         System &system = dc.system(uuid);
         std::thread t(&takeoff_and_land, std::ref(system));
-        threads.push_back(std::move(t));
+        threads.push_back(std::move(t));    
     }
 
     for (auto &t : threads) {

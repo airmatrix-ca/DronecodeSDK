@@ -22,14 +22,14 @@
                     0,
                     null,
                     43.6508167,			
-                    -79.38660809999999,
+                    -79.3866081,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -45,7 +45,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -61,7 +61,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -77,7 +77,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -93,7 +93,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -101,7 +101,7 @@
                     0,
                     0,
                     null,
-                    43.651061600000006,			
+                    43.6510616,			
                     -79.3865375,
                     15			
                 ],
@@ -109,7 +109,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -118,14 +118,14 @@
                     0,
                     null,
                     43.6511604,			
-                    -79.38657990000002,
+                    -79.3865799,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -141,7 +141,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -150,14 +150,14 @@
                     0,
                     null,
                     43.6513768,			
-                    -79.38667170000001,
+                    -79.3866717,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -173,7 +173,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -189,7 +189,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -197,15 +197,15 @@
                     0,
                     0,
                     null,
-                    43.651725899999995,			
-                    -79.38682179999999,
+                    43.6517259,			
+                    -79.3868218,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -221,7 +221,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -230,14 +230,14 @@
                     0,
                     null,
                     43.6519609,			
-                    -79.38692409999999,
+                    -79.3869241,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -245,7 +245,7 @@
                     0,
                     0,
                     null,
-                    43.652069399999995,			
+                    43.6520694,			
                     -79.3869713,
                     15			
                 ],
@@ -253,7 +253,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -269,7 +269,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -285,7 +285,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -293,7 +293,7 @@
                     0,
                     0,
                     null,
-                    43.652358299999996,			
+                    43.6523583,			
                     -79.3870958,
                     15			
                 ],
@@ -301,7 +301,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -317,7 +317,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -333,7 +333,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -342,14 +342,14 @@
                     0,
                     null,
                     43.6526736,			
-                    -79.38723470000001,
+                    -79.3872347,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -357,15 +357,15 @@
                     0,
                     0,
                     null,
-                    43.652774900000004,			
-                    -79.38727940000001,
+                    43.6527749,			
+                    -79.3872794,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -373,7 +373,7 @@
                     0,
                     0,
                     null,
-                    43.652873799999995,			
+                    43.6528738,			
                     -79.3873218,
                     15			
                 ],
@@ -381,7 +381,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -397,7 +397,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -406,14 +406,14 @@
                     0,
                     null,
                     43.6530903,			
-                    -79.38741329999999,
+                    -79.3874133,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -421,15 +421,15 @@
                     0,
                     0,
                     null,
-                    43.653181700000005,			
-                    -79.38745290000001,
+                    43.6531817,			
+                    -79.3874529,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -445,7 +445,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -453,15 +453,15 @@
                     0,
                     0,
                     null,
-                    43.653375399999994,			
-                    -79.38753829999999,
+                    43.6533754,			
+                    -79.3875383,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -477,7 +477,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -485,7 +485,7 @@
                     0,
                     0,
                     null,
-                    43.656639500000004,			
+                    43.6566395,			
                     -79.3889625,
                     15			
                 ],
@@ -493,7 +493,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -509,7 +509,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -525,7 +525,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -533,7 +533,7 @@
                     0,
                     0,
                     null,
-                    43.656913700000004,			
+                    43.6569137,			
                     -79.3890837,
                     15			
                 ],
@@ -541,7 +541,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -549,7 +549,7 @@
                     0,
                     0,
                     null,
-                    43.657001799999996,			
+                    43.6570018,			
                     -79.3891213,
                     15			
                 ],
@@ -557,7 +557,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -565,15 +565,15 @@
                     0,
                     0,
                     null,
-                    43.657090999999994,			
-                    -79.38915949999999,
+                    43.657091,			
+                    -79.3891595,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -589,7 +589,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -597,7 +597,7 @@
                     0,
                     0,
                     null,
-                    43.657262100000004,			
+                    43.6572621,			
                     -79.3892282,
                     15			
                 ],
@@ -605,7 +605,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -621,7 +621,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -637,7 +637,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -653,7 +653,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -669,7 +669,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -677,15 +677,15 @@
                     0,
                     0,
                     null,
-                    43.657644299999994,			
-                    -79.38939599999999,
+                    43.6576443,			
+                    -79.389396,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -701,7 +701,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -717,7 +717,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -733,7 +733,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -742,14 +742,14 @@
                     0,
                     null,
                     43.6580366,			
-                    -79.38956800000001,
+                    -79.389568,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -758,14 +758,14 @@
                     0,
                     null,
                     43.6598588,			
-                    -79.39032850000001,
+                    -79.3903285,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -781,7 +781,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -790,14 +790,14 @@
                     0,
                     null,
                     43.6602143,			
-                    -79.39047690000001,
+                    -79.3904769,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -813,7 +813,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -829,7 +829,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -838,14 +838,14 @@
                     0,
                     null,
                     43.660523,			
-                    -79.39055809999999,
+                    -79.3905581,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -854,14 +854,14 @@
                     0,
                     null,
                     43.6606235,			
-                    -79.39054190000002,
+                    -79.3905419,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -877,7 +877,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -893,7 +893,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -909,7 +909,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -917,7 +917,7 @@
                     0,
                     0,
                     null,
-                    43.660984899999995,			
+                    43.6609849,			
                     -79.3902613,
                     15			
                 ],
@@ -925,7 +925,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -934,14 +934,14 @@
                     0,
                     null,
                     43.6610674,			
-                    -79.39018259999999,
+                    -79.3901826,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -957,7 +957,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -973,7 +973,7 @@
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -982,14 +982,14 @@
                     0,
                     null,
                     43.6613212,			
-                    -79.39000240000001,
+                    -79.3900024,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 16,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -998,14 +998,14 @@
                     0,
                     null,
                     43.661418,			
-                    -79.38995190000001,
+                    -79.3899519,
                     15			
                 ],
                 "type": "SimpleItem" 
             },
             {
                 "autoContinue": true,
-                "command": 22,
+                "command": 21,
                 "doJumpId": 1,
                 "frame": 3,
                 "params": [
@@ -1013,16 +1013,16 @@
                     0,
                     0,
                     null,
-                    43.661520700000004,			
-                    -79.38990840000001,
+                    43.6615207,			
+                    -79.3899084,
                     15			
                 ],
                 "type": "SimpleItem" 
             }
         ],
         "plannedHomePosition": [
-            47.3977424,
-            8.545599,
+            43.6532,
+            -79.3832,
             488.103
         ],
         "vehicleType": 2,
