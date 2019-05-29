@@ -90,6 +90,19 @@ void pauseMission(auto mission){
        
 }
 
+void continueMission(auto mission){
+    std::cout << "Continuing mission." << std::endl;
+        auto prom = std::make_shared<std::promise<Mission::Result>>();
+        auto future_result = prom->get_future();
+        mission->start_mission_async([prom](Mission::Result result) {
+            prom->set_value(result);
+            std::cout << "Continued mission." << std::endl;
+        });
+
+        const Mission::Result result = future_result.get();
+        handle_mission_err_exit(result, "Mission start failed: ");
+}
+
 int main(int argc, char **argv)
 {
     DronecodeSDK dc;
@@ -208,6 +221,8 @@ int main(int argc, char **argv)
 
         if(current == 4){
             pauseMission(mission);
+            sleep_for(seconds(5));
+            continueMission(mission);
         //     std::cout << "Pausing mission." << std::endl;
         //     auto promi = std::make_shared<std::promise<Mission::Result>>();
         //     auto future2_result = promi->get_future();
