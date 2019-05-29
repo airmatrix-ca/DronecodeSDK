@@ -11,6 +11,7 @@
 #include <dronecode_sdk/plugins/telemetry/telemetry.h>
 
 #include <cstdint>
+#include <stdlib.h>
 #include <iostream>
 #include <thread>
 #include <chrono>
@@ -18,6 +19,7 @@
 #include <future>
 #include <memory>
 #include <string>
+#include <bits/stdc++.h>
 #include <ctime>
 #include <fstream>
 
@@ -137,12 +139,19 @@ void complete_mission(std::string qgc_plan, System &system)
     std::cout << "Importing mission from mission plan: " << qgc_plan << std::endl;
 
     std::ofstream myFile; 
-    myFile.open("testData.csv");
+    myFile.open((std::to_string(system.get_uuid()%100000) + ".csv"));
     myFile << "Time, Vehicle_ID, Altitude, Latitude, Longitude, Absolute_Altitude, \n";
-
+    int countTelemetry = 0;
+    
     // Setting up the callback to monitor lat and longitude
     telemetry->position_async([&](Telemetry::Position position){
-        myFile << getTimeStr() << "," << system.get_uuid() << "," << position.relative_altitude_m << "," << position.latitude_deg << "," << position.longitude_deg << "," << position.absolute_altitude_m << std::endl; 
+        myFile << getTimeStr() << "," << (system.get_uuid())%100000 << "," << position.relative_altitude_m << "," << position.latitude_deg << "," << position.longitude_deg << "," << position.absolute_altitude_m << ", \n"; 
+        std::string runFile = "python ./testingPython.py " + std::to_string((system.get_uuid())%100000) + " " + std::to_string(countTelemetry) + " " + std::to_string(position.latitude_deg) + " " + std::to_string(position.longitude_deg);
+        int n = runFile.length();
+        char char_array[n+1];
+        strcpy(char_array, runFile.c_str());
+        std::system(char_array);
+        countTelemetry += 1;
     });
 
     // Check if vehicle is ready to arm
@@ -209,6 +218,7 @@ void complete_mission(std::string qgc_plan, System &system)
     // Mission complete. Landing now
       std::cout << "Landing at last node..." << std::endl;
 
+    myFile.close();
 }
 
 inline void handle_action_err_exit(Action::Result result, const std::string &message)

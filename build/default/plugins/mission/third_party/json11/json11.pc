@@ -1,6 +1,6 @@
 prefix=/usr/local
-libdir=${prefix}/lib/
-includedir=${prefix}/include/
+libdir=${prefix}/lib/x86_64-linux-gnu
+includedir=${prefix}/include/x86_64-linux-gnu
 
 Name: json11
 Description: json11 is a tiny JSON library for C++11, providing JSON parsing and serialization.

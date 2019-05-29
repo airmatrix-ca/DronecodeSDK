@@ -1,14 +1,14 @@
-if(NOT EXISTS "/Users/shusil/Documents/DroneCode/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt")
-  message(FATAL_ERROR "Cannot find install manifest: /Users/shusil/Documents/DroneCode/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt")
-endif(NOT EXISTS "/Users/shusil/Documents/DroneCode/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt")
+if(NOT EXISTS "/home/ayaan/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt")
+  message(FATAL_ERROR "Cannot find install manifest: /home/ayaan/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt")
+endif(NOT EXISTS "/home/ayaan/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt")
 
-file(READ "/Users/shusil/Documents/DroneCode/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt" files)
+file(READ "/home/ayaan/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 foreach(file ${files})
   message(STATUS "Uninstalling $ENV{DESTDIR}${file}")
   if(IS_SYMLINK "$ENV{DESTDIR}${file}" OR EXISTS "$ENV{DESTDIR}${file}")
     exec_program(
-      "/usr/local/Cellar/cmake/3.14.3/bin/cmake" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
+      "/usr/bin/cmake" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
       OUTPUT_VARIABLE rm_out
       RETURN_VALUE rm_retval
       )

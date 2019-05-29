@@ -2,6 +2,6 @@
 
 namespace dronecode_sdk {
 
-constexpr auto dronecode_sdk_version = "0.16.0-5-g4f67c48e-dirty";
+constexpr auto dronecode_sdk_version = "0.16.0-9-gd0948591-dirty";
 
 } // namespace dronecode_sdk

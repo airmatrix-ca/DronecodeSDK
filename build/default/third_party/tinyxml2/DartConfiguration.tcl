@@ -4,30 +4,40 @@
 
 
 # Configuration directories and files
-SourceDirectory: /Users/shusil/Documents/DroneCode/DronecodeSDK/third_party/tinyxml2
-BuildDirectory: /Users/shusil/Documents/DroneCode/DronecodeSDK/build/default/third_party/tinyxml2
+SourceDirectory: /home/ayaan/Documents/SDKs/DronecodeSDK/third_party/tinyxml2
+BuildDirectory: /home/ayaan/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: Shusils-MacBook-340.local
+Site: ayaan-Inspiron-5379
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
-BuildName: Darwin-c++
+BuildName: Linux-c++
 
 # Subprojects
 LabelsForSubprojects: 
 
 # Submission information
-SubmitURL: http://
+IsCDash: 
+CDashVersion: 
+QueryCDashVersion: 
+DropSite: 
+DropLocation: 
+DropSiteUser: 
+DropSitePassword: 
+DropSiteMode: 
+DropMethod: http
+TriggerSite: 
+ScpCommand: /usr/bin/scp
 
 # Dashboard start time
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/local/Cellar/cmake/3.14.3/bin/cmake" "/Users/shusil/Documents/DroneCode/DronecodeSDK/third_party/tinyxml2"
-MakeCommand: /usr/local/Cellar/cmake/3.14.3/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+ConfigureCommand: "/usr/bin/cmake" "/home/ayaan/Documents/SDKs/DronecodeSDK/third_party/tinyxml2"
+MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
 # version control
@@ -39,7 +49,7 @@ CVSCommand: CVSCOMMAND-NOTFOUND
 CVSUpdateOptions: -d -A -P
 
 # Subversion options
-SVNCommand: /usr/bin/svn
+SVNCommand: SVNCOMMAND-NOTFOUND
 SVNOptions: 
 SVNUpdateOptions: 
 
@@ -62,8 +72,8 @@ UpdateOptions:
 UpdateType: git
 
 # Compiler info
-Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
-CompilerVersion: 10.0.1.10010046
+Compiler: /usr/bin/c++
+CompilerVersion: 7.4.0
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 

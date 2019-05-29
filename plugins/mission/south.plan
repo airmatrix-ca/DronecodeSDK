@@ -1,0 +1,3997 @@
+{
+        "fileType": "Plan",
+        "geoFence": {
+            "polygon": [
+            ],
+            "version": 1
+        },
+        "groundStation": "QGroundControl",
+        "mission": {
+            "cruiseSpeed": 15,
+            "firmwareType": 12,
+            "hoverSpeed": 5,
+            "items": [
+            {
+                "autoContinue": true,
+            "command": 22,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6529787,
+                -79.3873660,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6530903,
+                -79.3874133,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6531817,
+                -79.3874529,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6532776,
+                -79.3874950,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6533754,
+                -79.3875383,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6534750,
+                -79.3875833,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6566395,
+                -79.3889625,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6567258,
+                -79.3890025,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6568187,
+                -79.3890428,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6569137,
+                -79.3890837,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6570018,
+                -79.3891213,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6570910,
+                -79.3891595,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6571705,
+                -79.3891875,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6572621,
+                -79.3892282,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6573536,
+                -79.3892699,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6574406,
+                -79.3893095,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6575533,
+                -79.3893566,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6576204,
+                -79.3893872,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6576443,
+                -79.3893960,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6577385,
+                -79.3894374,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6578199,
+                -79.3894738,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6579247,
+                -79.3895196,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6580366,
+                -79.3895680,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6598588,
+                -79.3903285,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6598905,
+                -79.3903418,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6598751,
+                -79.3904203,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6598603,
+                -79.3904938,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6598478,
+                -79.3905611,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6598351,
+                -79.3906240,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6598231,
+                -79.3906809,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6597902,
+                -79.3908355,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6597635,
+                -79.3909593,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6597359,
+                -79.3910889,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6594959,
+                -79.3922065,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6594684,
+                -79.3923309,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6594400,
+                -79.3924602,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6594111,
+                -79.3925934,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6593813,
+                -79.3927330,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6593510,
+                -79.3928769,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6593206,
+                -79.3930185,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6592906,
+                -79.3931565,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6592611,
+                -79.3932926,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6592328,
+                -79.3934248,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6592044,
+                -79.3935556,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6591758,
+                -79.3936872,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6591466,
+                -79.3938201,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6591172,
+                -79.3939566,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6590961,
+                -79.3940553,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6590875,
+                -79.3940954,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6590582,
+                -79.3942328,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6590285,
+                -79.3943684,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6589990,
+                -79.3945034,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6589699,
+                -79.3946386,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6589407,
+                -79.3947753,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6589116,
+                -79.3949097,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6588833,
+                -79.3950422,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6588556,
+                -79.3951730,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6588274,
+                -79.3953037,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6588013,
+                -79.3954316,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6587782,
+                -79.3955583,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6587576,
+                -79.3956865,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6587381,
+                -79.3958135,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6587195,
+                -79.3959309,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6587184,
+                -79.3959380,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6587011,
+                -79.3960380,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6587006,
+                -79.3960372,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6586756,
+                -79.3960003,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6586657,
+                -79.3959856,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6586303,
+                -79.3959370,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6585928,
+                -79.3958926,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6585518,
+                -79.3958543,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6585067,
+                -79.3958220,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6584566,
+                -79.3957947,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6584043,
+                -79.3957698,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6583513,
+                -79.3957453,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6582977,
+                -79.3957191,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6580185,
+                -79.3955869,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6579605,
+                -79.3955619,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6578999,
+                -79.3955352,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6577749,
+                -79.3954787,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6576809,
+                -79.3954379,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6572112,
+                -79.3952428,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6571529,
+                -79.3952188,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6567239,
+                -79.3950472,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6566854,
+                -79.3950302,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6566471,
+                -79.3950131,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6566089,
+                -79.3949964,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6565705,
+                -79.3949800,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6565325,
+                -79.3949637,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6564942,
+                -79.3949484,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6564559,
+                -79.3949330,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6564177,
+                -79.3949182,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6563787,
+                -79.3949032,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6562441,
+                -79.3948495,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6562049,
+                -79.3948340,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6561661,
+                -79.3948181,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6561274,
+                -79.3948021,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6560886,
+                -79.3947867,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6558627,
+                -79.3946943,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6558204,
+                -79.3946770,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6557801,
+                -79.3946610,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6557402,
+                -79.3946448,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6556893,
+                -79.3946235,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6556394,
+                -79.3946020,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6555991,
+                -79.3945845,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6555543,
+                -79.3945650,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6555071,
+                -79.3945452,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6548872,
+                -79.3942900,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6548409,
+                -79.3942711,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6547964,
+                -79.3942531,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6547530,
+                -79.3942357,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6547102,
+                -79.3942190,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6546696,
+                -79.3942033,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6546330,
+                -79.3941893,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6545679,
+                -79.3941651,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6545219,
+                -79.3941478,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6544818,
+                -79.3941322,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6544438,
+                -79.3941174,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6543922,
+                -79.3940977,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6543399,
+                -79.3940776,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6543002,
+                -79.3940635,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6541375,
+                -79.3940062,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6540932,
+                -79.3939896,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6540489,
+                -79.3939730,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6539992,
+                -79.3939541,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6539555,
+                -79.3939372,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6539138,
+                -79.3939212,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6528328,
+                -79.3934886,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6527175,
+                -79.3933974,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6526765,
+                -79.3933765,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6526314,
+                -79.3933563,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6525837,
+                -79.3933355,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6525333,
+                -79.3933146,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6524804,
+                -79.3932933,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6524270,
+                -79.3932720,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6523727,
+                -79.3932498,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6523174,
+                -79.3932269,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6522615,
+                -79.3932033,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6522056,
+                -79.3931795,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6521500,
+                -79.3931561,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6520928,
+                -79.3931324,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6520343,
+                -79.3931081,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6519758,
+                -79.3930842,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6519173,
+                -79.3930608,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6518593,
+                -79.3930370,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6518034,
+                -79.3930141,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6517500,
+                -79.3929914,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6516969,
+                -79.3929680,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6516439,
+                -79.3929443,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6515904,
+                -79.3929212,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6515367,
+                -79.3928987,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6514818,
+                -79.3928761,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6514250,
+                -79.3928525,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6513658,
+                -79.3928287,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6513042,
+                -79.3928046,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6512410,
+                -79.3927789,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6511777,
+                -79.3927533,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6511144,
+                -79.3927277,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6510514,
+                -79.3927018,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6509889,
+                -79.3926758,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6509267,
+                -79.3926499,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6508647,
+                -79.3926243,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6508028,
+                -79.3925988,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6507412,
+                -79.3925735,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6506798,
+                -79.3925486,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6503475,
+                -79.3924239,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6500936,
+                -79.3923247,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6499243,
+                -79.3922611,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6498084,
+                -79.3922128,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6497182,
+                -79.3921772,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6496528,
+                -79.3921526,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6496230,
+                -79.3921426,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6496274,
+                -79.3921226,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6496346,
+                -79.3920898,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6496414,
+                -79.3920589,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6496560,
+                -79.3919910,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6496717,
+                -79.3919203,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6496869,
+                -79.3918476,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6497021,
+                -79.3917749,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6497171,
+                -79.3917029,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6497323,
+                -79.3916304,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6497484,
+                -79.3915547,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6497652,
+                -79.3914762,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6497819,
+                -79.3913981,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6497984,
+                -79.3913207,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6498150,
+                -79.3912412,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6498318,
+                -79.3911574,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6498495,
+                -79.3910711,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6498675,
+                -79.3909839,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6498856,
+                -79.3908974,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6499041,
+                -79.3908109,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6499226,
+                -79.3907255,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6499399,
+                -79.3906455,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6499548,
+                -79.3905758,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6499669,
+                -79.3905193,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6499816,
+                -79.3904504,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6499940,
+                -79.3903958,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6500060,
+                -79.3903437,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6500182,
+                -79.3902909,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6500305,
+                -79.3902383,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6500435,
+                -79.3901798,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6500542,
+                -79.3901297,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6500671,
+                -79.3900733,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6500789,
+                -79.3900193,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6500904,
+                -79.3899663,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6501016,
+                -79.3899135,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6501142,
+                -79.3898544,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6501274,
+                -79.3897934,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6501433,
+                -79.3897198,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6501565,
+                -79.3896559,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6501687,
+                -79.3895973,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6501823,
+                -79.3895339,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6501966,
+                -79.3894690,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6502113,
+                -79.3894010,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6502269,
+                -79.3893296,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6502425,
+                -79.3892586,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6502572,
+                -79.3891904,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6502717,
+                -79.3891241,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6502855,
+                -79.3890596,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6502989,
+                -79.3889966,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6503119,
+                -79.3889364,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6503234,
+                -79.3888835,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6503402,
+                -79.3888067,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6503513,
+                -79.3887559,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6503627,
+                -79.3887025,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6503805,
+                -79.3886196,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6503921,
+                -79.3885664,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6504050,
+                -79.3885047,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6504200,
+                -79.3884378,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6504351,
+                -79.3883676,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6504510,
+                -79.3882941,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6504675,
+                -79.3882174,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6504848,
+                -79.3881387,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6505022,
+                -79.3880562,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6505223,
+                -79.3879721,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6505462,
+                -79.3878592,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6505794,
+                -79.3877092,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6505987,
+                -79.3876164,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6506221,
+                -79.3875077,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6506971,
+                -79.3871726,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6507615,
+                -79.3868675,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6508167,
+                -79.3866081,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6508525,
+                -79.3864497,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6508670,
+                -79.3864556,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6508761,
+                -79.3864595,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6509701,
+                -79.3864990,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 16,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6510616,
+                -79.3865375,
+                15
+            ],
+            "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+            "command": 21,
+            "doJumpId": 1,
+            "frame": 3,
+            "params": [
+                0,
+                0,
+                0,
+                null,
+                43.6511604,
+                -79.3865799,
+                15
+            ],
+            "type": "SimpleItem"
+            }
+        ],
+            "plannedHomePosition": [
+                43.6532,
+                -79.3832,
+                488.103
+            ],
+            "vehicleType": 2,
+            "version": 2
+        },
+        "rallyPoints": {
+            "points": [
+            ],
+            "version": 1
+        },
+        "version": 1
+    }

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/shusil/Documents/DroneCode/DronecodeSDK/core
+# Install script for directory: /home/ayaan/Documents/SDKs/DronecodeSDK/core
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,25 +27,42 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+# Install shared libraries without execute permission?
+if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
+endif()
+
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/shusil/Documents/DroneCode/DronecodeSDK/build/default/core/libdronecode_sdk.a")
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk.a" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk.a")
-    execute_process(COMMAND "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk.a")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk.so")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk.so"
+         RPATH "")
+  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/ayaan/Documents/SDKs/DronecodeSDK/build/default/core/libdronecode_sdk.so")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk.so")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk.so"
+         OLD_RPATH "/home/ayaan/Documents/SDKs/DronecodeSDK/third_party/tinyxml2:"
+         NEW_RPATH "")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk.so")
+    endif()
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/dronecode_sdk" TYPE FILE FILES
-    "/Users/shusil/Documents/DroneCode/DronecodeSDK/core/include/dronecode_sdk/connection_result.h"
-    "/Users/shusil/Documents/DroneCode/DronecodeSDK/core/include/dronecode_sdk/system.h"
-    "/Users/shusil/Documents/DroneCode/DronecodeSDK/core/include/dronecode_sdk/dronecode_sdk.h"
-    "/Users/shusil/Documents/DroneCode/DronecodeSDK/core/include/dronecode_sdk/plugin_base.h"
+    "/home/ayaan/Documents/SDKs/DronecodeSDK/core/include/dronecode_sdk/connection_result.h"
+    "/home/ayaan/Documents/SDKs/DronecodeSDK/core/include/dronecode_sdk/system.h"
+    "/home/ayaan/Documents/SDKs/DronecodeSDK/core/include/dronecode_sdk/dronecode_sdk.h"
+    "/home/ayaan/Documents/SDKs/DronecodeSDK/core/include/dronecode_sdk/plugin_base.h"
     )
 endif()
 

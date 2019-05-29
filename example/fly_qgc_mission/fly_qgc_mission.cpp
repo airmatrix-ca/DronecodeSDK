@@ -30,6 +30,7 @@
 #include <dronecode_sdk/plugins/telemetry/telemetry.h>
 
 #include <functional>
+#include <stdlib.h>
 #include <future>
 #include <iostream>
 #include <memory>
@@ -37,6 +38,7 @@
 #include <chrono>
 #include <ctime>
 #include <fstream>
+#include <bits/stdc++.h>
 
 #define ERROR_CONSOLE_TEXT "\033[31m" // Turn text on console red
 #define TELEMETRY_CONSOLE_TEXT "\033[34m" // Turn text on console blue
@@ -72,6 +74,21 @@ std::string getTimeStr(){
     return s;
 }
 
+void pauseMission(auto mission){
+
+        
+            std::cout << "Pausing mission." << std::endl;
+            auto promi = std::make_shared<std::promise<Mission::Result>>();
+            auto future2_result = promi->get_future();
+            mission->pause_mission_async([promi](Mission::Result result) {
+            promi->set_value(result);
+            std::cout << "Paused mission." << std::endl;
+        });
+
+        const Mission::Result result = future2_result.get();
+        handle_mission_err_exit(result, "Mission pause failed: ");
+       
+}
 
 int main(int argc, char **argv)
 {
@@ -136,10 +153,16 @@ int main(int argc, char **argv)
     std::ofstream myFile; 
     myFile.open("testData.csv");
     myFile << "Time, Altitude, Latitude, Longitude, Absolute_Altitude, \n";
-
-    // Setting up the callback to monitor lat and longitude
+    int countTelemetry = 0;
+     // Setting up the callback to monitor lat and longitude
     telemetry->position_async([&](Telemetry::Position position){
-        myFile << getTimeStr() << "," << position.relative_altitude_m << "," << position.latitude_deg << "," << position.longitude_deg << "," << position.absolute_altitude_m << std::endl; 
+        myFile << getTimeStr() << "," << (system.get_uuid())%100000 << "," << position.relative_altitude_m << "," << position.latitude_deg << "," << position.longitude_deg << "," << position.absolute_altitude_m << ", \n"; 
+        std::string runFile = "python ./testingPython.py " + std::to_string((system.get_uuid())%100000) + " " + std::to_string(countTelemetry) + " " + std::to_string(position.latitude_deg) + " " + std::to_string(position.longitude_deg);
+        int n = runFile.length();
+        char char_array[n+1];
+        strcpy(char_array, runFile.c_str());
+        std::system(char_array);
+        countTelemetry += 1;
     });
 
     while (!telemetry->health_all_ok()) {
@@ -180,8 +203,23 @@ int main(int argc, char **argv)
     std::cout << "Armed." << std::endl;
 
     // Before starting the mission subscribe to the mission progress.
-    mission->subscribe_progress([](int current, int total) {
+    mission->subscribe_progress([&](int current, int total) {
         std::cout << "Mission status update: " << current << " / " << total << std::endl;
+
+        if(current == 4){
+            pauseMission(mission);
+        //     std::cout << "Pausing mission." << std::endl;
+        //     auto promi = std::make_shared<std::promise<Mission::Result>>();
+        //     auto future2_result = promi->get_future();
+        //     mission->pause_mission_async([promi](Mission::Result result) {
+        //     promi->set_value(result);
+        //     std::cout << "Paused mission." << std::endl;
+        // });
+
+        // const Mission::Result result = future2_result.get();
+        // handle_mission_err_exit(result, "Mission pause failed: ");
+        }
+
     });
 
     {
@@ -204,17 +242,17 @@ int main(int argc, char **argv)
     // Wait for some time.
     sleep_for(seconds(5));
 
-    // {
-    //     // Mission complete. Command RTL to go home.
-    //     std::cout << "Commanding RTL..." << std::endl;
-    //     const Action::Result result = action->return_to_launch();
-    //     if (result != Action::Result::SUCCESS) {
-    //         std::cout << "Failed to command RTL (" << Action::result_str(result) << ")"
-    //                   << std::endl;
-    //     } else {
-    //         std::cout << "Commanded RTL." << std::endl;
-    //     }
-    // }
+    {
+        // Mission complete. Command RTL to go home.
+        std::cout << "Commanding RTL..." << std::endl;
+        const Action::Result result = action->return_to_launch();
+        if (result != Action::Result::SUCCESS) {
+            std::cout << "Failed to command RTL (" << Action::result_str(result) << ")"
+                      << std::endl;
+        } else {
+            std::cout << "Commanded RTL." << std::endl;
+        }
+    }
 
     return 0;
 }
