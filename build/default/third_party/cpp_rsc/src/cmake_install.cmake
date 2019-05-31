@@ -1,4 +1,4 @@
-# Install script for directory: /home/ayaan/Documents/SDKs/DronecodeSDK/third_party/cpp_rsc/src
+# Install script for directory: /home/airmatrix/Documents/SDKs/DronecodeSDK/third_party/cpp_rsc/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/cpp_rsc"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/ayaan/Documents/SDKs/DronecodeSDK/build/default/third_party/cpp_rsc/src/cpp_rsc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/airmatrix/Documents/SDKs/DronecodeSDK/build/default/third_party/cpp_rsc/src/cpp_rsc")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/cpp_rsc" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/cpp_rsc")
     if(CMAKE_INSTALL_DO_STRIP)

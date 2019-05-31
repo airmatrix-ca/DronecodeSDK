@@ -36,7 +36,6 @@ static bool pause_already_done = false;
 TEST_F(SitlTest, MissionAddWaypointsAndFly)
 {
     DronecodeSDK dc;
-
     {
         auto prom = std::make_shared<std::promise<void>>();
         auto future_result = prom->get_future();

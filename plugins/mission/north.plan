@@ -28,7 +28,7 @@
             "type": "SimpleItem"
             },
             {
-                "autoContinue": true,
+                "autoContinue": false,
             "command": 16,
             "doJumpId": 1,
             "frame": 3,
@@ -76,7 +76,7 @@
             "type": "SimpleItem"
             },
             {
-                "autoContinue": true,
+                "autoContinue": false,
             "command": 16,
             "doJumpId": 1,
             "frame": 3,

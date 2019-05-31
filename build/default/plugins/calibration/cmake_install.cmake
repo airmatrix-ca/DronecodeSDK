@@ -1,4 +1,4 @@
-# Install script for directory: /home/ayaan/Documents/SDKs/DronecodeSDK/plugins/calibration
+# Install script for directory: /home/airmatrix/Documents/SDKs/DronecodeSDK/plugins/calibration
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/dronecode_sdk/plugins/calibration" TYPE FILE FILES "/home/ayaan/Documents/SDKs/DronecodeSDK/plugins/calibration/include/plugins/calibration/calibration.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/dronecode_sdk/plugins/calibration" TYPE FILE FILES "/home/airmatrix/Documents/SDKs/DronecodeSDK/plugins/calibration/include/plugins/calibration/calibration.h")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -48,12 +48,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk_calibration.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/ayaan/Documents/SDKs/DronecodeSDK/build/default/plugins/calibration/libdronecode_sdk_calibration.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/airmatrix/Documents/SDKs/DronecodeSDK/build/default/plugins/calibration/libdronecode_sdk_calibration.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk_calibration.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk_calibration.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk_calibration.so"
-         OLD_RPATH "/home/ayaan/Documents/SDKs/DronecodeSDK/third_party/tinyxml2:/home/ayaan/Documents/SDKs/DronecodeSDK/build/default/core:"
+         OLD_RPATH "/home/airmatrix/Documents/SDKs/DronecodeSDK/third_party/tinyxml2:/home/airmatrix/Documents/SDKs/DronecodeSDK/build/default/core:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk_calibration.so")

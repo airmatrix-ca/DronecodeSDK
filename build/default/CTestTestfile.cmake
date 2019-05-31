@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/ayaan/Documents/SDKs/DronecodeSDK
-# Build directory: /home/ayaan/Documents/SDKs/DronecodeSDK/build/default
+# Source directory: /home/airmatrix/Documents/SDKs/DronecodeSDK
+# Build directory: /home/airmatrix/Documents/SDKs/DronecodeSDK/build/default
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

@@ -1,4 +1,4 @@
-# Install script for directory: /home/ayaan/Documents/SDKs/DronecodeSDK/plugins/mission
+# Install script for directory: /home/airmatrix/Documents/SDKs/DronecodeSDK/plugins/mission
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/dronecode_sdk/plugins/mission" TYPE FILE FILES
-    "/home/ayaan/Documents/SDKs/DronecodeSDK/plugins/mission/include/plugins/mission/mission.h"
-    "/home/ayaan/Documents/SDKs/DronecodeSDK/plugins/mission/include/plugins/mission/mission_item.h"
+    "/home/airmatrix/Documents/SDKs/DronecodeSDK/plugins/mission/include/plugins/mission/mission.h"
+    "/home/airmatrix/Documents/SDKs/DronecodeSDK/plugins/mission/include/plugins/mission/mission_item.h"
     )
 endif()
 
@@ -51,12 +51,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk_mission.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/ayaan/Documents/SDKs/DronecodeSDK/build/default/plugins/mission/libdronecode_sdk_mission.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/airmatrix/Documents/SDKs/DronecodeSDK/build/default/plugins/mission/libdronecode_sdk_mission.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk_mission.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk_mission.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk_mission.so"
-         OLD_RPATH "/home/ayaan/Documents/SDKs/DronecodeSDK/third_party/tinyxml2:/home/ayaan/Documents/SDKs/DronecodeSDK/build/default/core:"
+         OLD_RPATH "/home/airmatrix/Documents/SDKs/DronecodeSDK/third_party/tinyxml2:/home/airmatrix/Documents/SDKs/DronecodeSDK/build/default/core:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libdronecode_sdk_mission.so")
@@ -66,7 +66,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ayaan/Documents/SDKs/DronecodeSDK/build/default/plugins/mission/third_party/json11/cmake_install.cmake")
+  include("/home/airmatrix/Documents/SDKs/DronecodeSDK/build/default/plugins/mission/third_party/json11/cmake_install.cmake")
 
 endif()
 

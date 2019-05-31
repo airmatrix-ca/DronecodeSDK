@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/ayaan/Documents/SDKs/DronecodeSDK/third_party/tinyxml2
-BuildDirectory: /home/ayaan/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2
+SourceDirectory: /home/airmatrix/Documents/SDKs/DronecodeSDK/third_party/tinyxml2
+BuildDirectory: /home/airmatrix/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: ayaan-Inspiron-5379
+Site: airmatrix
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-c++
@@ -36,7 +36,7 @@ ScpCommand: /usr/bin/scp
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/ayaan/Documents/SDKs/DronecodeSDK/third_party/tinyxml2"
+ConfigureCommand: "/usr/bin/cmake" "/home/airmatrix/Documents/SDKs/DronecodeSDK/third_party/tinyxml2"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
@@ -49,7 +49,7 @@ CVSCommand: CVSCOMMAND-NOTFOUND
 CVSUpdateOptions: -d -A -P
 
 # Subversion options
-SVNCommand: SVNCOMMAND-NOTFOUND
+SVNCommand: /usr/bin/svn
 SVNOptions: 
 SVNUpdateOptions: 
 

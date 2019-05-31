@@ -46,14 +46,14 @@ add_library(tinyxml2_static STATIC IMPORTED)
 
 set_target_properties(tinyxml2_static PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "_CRT_SECURE_NO_WARNINGS"
-  INTERFACE_INCLUDE_DIRECTORIES "/home/ayaan/Documents/SDKs/DronecodeSDK/third_party/tinyxml2"
+  INTERFACE_INCLUDE_DIRECTORIES "/home/airmatrix/Documents/SDKs/DronecodeSDK/third_party/tinyxml2"
 )
 
 # Import target "tinyxml2_static" for configuration "Debug"
 set_property(TARGET tinyxml2_static APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(tinyxml2_static PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "CXX"
-  IMPORTED_LOCATION_DEBUG "/home/ayaan/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2/libtinyxml2d.a"
+  IMPORTED_LOCATION_DEBUG "/home/airmatrix/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2/libtinyxml2d.a"
   )
 
 # This file does not depend on other imported targets which have

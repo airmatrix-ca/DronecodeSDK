@@ -1,4 +1,4 @@
-# Install script for directory: /home/ayaan/Documents/SDKs/DronecodeSDK/integration_tests
+# Install script for directory: /home/airmatrix/Documents/SDKs/DronecodeSDK/integration_tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

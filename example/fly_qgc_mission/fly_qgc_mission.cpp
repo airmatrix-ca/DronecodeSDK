@@ -25,86 +25,178 @@
  */
 
 #include <dronecode_sdk/dronecode_sdk.h>
+
 #include <dronecode_sdk/plugins/action/action.h>
+
 #include <dronecode_sdk/plugins/mission/mission.h>
+
 #include <dronecode_sdk/plugins/telemetry/telemetry.h>
 
 #include <functional>
+
 #include <stdlib.h>
+
 #include <future>
+
 #include <iostream>
+
 #include <memory>
+
 #include <string>
+
 #include <chrono>
+
 #include <ctime>
+
 #include <fstream>
+
 #include <bits/stdc++.h>
 
-#define ERROR_CONSOLE_TEXT "\033[31m" // Turn text on console red
-#define TELEMETRY_CONSOLE_TEXT "\033[34m" // Turn text on console blue
-#define NORMAL_CONSOLE_TEXT "\033[0m" // Restore normal console colour
+#include "gtkmm_buttons.hpp"
+
+#include <gtkmm-3.0/gtkmm.h>
+
+#include <gtkmm-3.0/gtkmm/window.h>
+
+#include <gtkmm-3.0/gtkmm/button.h>
+
+#include <gtkmm-3.0/gtkmm/box.h>
+
+#include <gtkmm-3.0/gtkmm/application.h>
+
+# define ERROR_CONSOLE_TEXT "\033[31m" // Turn text on console red
+# define TELEMETRY_CONSOLE_TEXT "\033[34m" // Turn text on console blue
+# define NORMAL_CONSOLE_TEXT "\033[0m" // Restore normal console colour
 
 using namespace dronecode_sdk;
 using namespace std::chrono; // for seconds(), milliseconds()
 using namespace std::this_thread; // for sleep_for()
 
 // Handles Action's result
-inline void handle_action_err_exit(Action::Result result, const std::string &message);
+inline void handle_action_err_exit(Action::Result result,
+    const std::string & message);
 // Handles Mission's result
-inline void handle_mission_err_exit(Mission::Result result, const std::string &message);
+inline void handle_mission_err_exit(Mission::Result result,
+    const std::string & message);
 // Handles Connection result
-inline void handle_connection_err_exit(ConnectionResult result, const std::string &message);
+inline void handle_connection_err_exit(ConnectionResult result,
+    const std::string & message);
 
-void usage(std::string bin_name)
-{
-    std::cout << NORMAL_CONSOLE_TEXT << "Usage : " << bin_name
-              << " <connection_url> [path of QGC Mission plan]" << std::endl
-              << "Connection URL format should be :" << std::endl
-              << " For TCP : tcp://[server_host][:server_port]" << std::endl
-              << " For UDP : udp://[bind_host][:bind_port]" << std::endl
-              << " For Serial : serial:///path/to/serial/dev[:baudrate]" << std::endl
-              << "For example, to connect to the simulator use URL: udp://:14540" << std::endl;
+int stopTheDrone = 0;
+int continueTheDrone = 0;
+
+static bool pause_already_done = false;
+
+void usage(std::string bin_name) {
+    std::cout << NORMAL_CONSOLE_TEXT << "Usage : " << bin_name <<
+        " <connection_url> [path of QGC Mission plan]" << std::endl <<
+        "Connection URL format should be :" << std::endl <<
+        " For TCP : tcp://[server_host][:server_port]" << std::endl <<
+        " For UDP : udp://[bind_host][:bind_port]" << std::endl <<
+        " For Serial : serial:///path/to/serial/dev[:baudrate]" << std::endl <<
+        "For example, to connect to the simulator use URL: udp://:14540" << std::endl;
 }
 
-std::string getTimeStr(){
+std::string getTimeStr() {
     time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 
     std::string s(30, '\0');
-    strftime(&s[0], s.size(), "%Y-%m-%d %H:%M:%S", std::localtime(&now));
+    strftime( & s[0], s.size(), "%Y-%m-%d %H:%M:%S", std::localtime( & now));
     return s;
 }
 
-void pauseMission(auto mission){
-
-        
-            std::cout << "Pausing mission." << std::endl;
-            auto promi = std::make_shared<std::promise<Mission::Result>>();
-            auto future2_result = promi->get_future();
-            mission->pause_mission_async([promi](Mission::Result result) {
-            promi->set_value(result);
-            std::cout << "Paused mission." << std::endl;
+void pause_and_resume(std::shared_ptr < Mission > mission) {
+    {
+        // We pause inside the callback and hope not to get blocked.
+        auto prom = std::make_shared < std::promise < void >> ();
+        auto future_result = prom -> get_future();
+        mission -> pause_mission_async([prom](Mission::Result result) {
+            prom -> set_value();
+            std::cout << "Paused mission. (5)" << std::endl;
         });
+        future_result.get();
+    }
 
-        const Mission::Result result = future2_result.get();
-        handle_mission_err_exit(result, "Mission pause failed: ");
-       
+    while (continueTheDrone != 1) {
+        std::cout << "Waiting for the signal to continue.. " << std::endl;
+    }
+
+    if (continueTheDrone == 1) {
+        // Then continue.
+        {
+            auto prom = std::make_shared < std::promise < void >> ();
+            auto future_result = prom -> get_future();
+            mission -> start_mission_async(
+                [prom](Mission::Result result) {
+                    prom -> set_value();
+                });
+            future_result.get();
+            std::cout << "Resumed mission. (5)" << std::endl;
+        }
+        continueTheDrone = 0;
+    }
 }
 
-void continueMission(auto mission){
-    std::cout << "Continuing mission." << std::endl;
-        auto prom = std::make_shared<std::promise<Mission::Result>>();
-        auto future_result = prom->get_future();
-        mission->start_mission_async([prom](Mission::Result result) {
-            prom->set_value(result);
-            std::cout << "Continued mission." << std::endl;
-        });
+Buttons::Buttons() {
+    button1.add_pixlabel("info.xpm", "Pause");
+    button2.add_pixlabel("info.xpm", "Continue");
 
-        const Mission::Result result = future_result.get();
-        handle_mission_err_exit(result, "Mission start failed: ");
+    set_title("AirMatrix");
+    set_border_width(10);
+    add(box1);
+
+    box1.pack_start(button1);
+    box1.pack_start(button2);
+
+    button1.signal_clicked().connect(sigc::mem_fun( * this, & Buttons::when_paused));
+    button2.signal_clicked().connect(sigc::mem_fun( * this, & Buttons::when_continued));
+
+    show_all_children();
 }
 
-int main(int argc, char **argv)
-{
+Buttons::~Buttons() {}
+
+void Buttons::on_button_clicked() {}
+
+void startGUI(int argc, char ** argv) {
+    std::cout << "Async Thread: " << std::this_thread::get_id() << std::endl;
+    auto app = Gtk::Application::create(argc, argv, "org.gtkmm.test");
+    //Shows the window and returns when it is closed.
+
+    Buttons buttons;
+    app -> run(buttons);
+    std::cout << "GUI STOPPED" << std::endl;
+}
+
+void Buttons::when_paused() {
+    std::cout << "Paused Pressed before " << stopTheDrone << std::endl;
+    stopTheDrone = 1;
+    std::cout << "Paused changed to " << stopTheDrone << std::endl;
+}
+void Buttons::when_continued() {
+    std::cout << "Continue Pressed before " << continueTheDrone << std::endl;
+    if (stopTheDrone == 1)
+        continueTheDrone = 1;
+    std::cout << "Continue changed to " << continueTheDrone << std::endl;
+}
+
+int main(int argc, char ** argv) {
+
+    char * str1;
+    str1 = argv[0];
+    char ** tempArgv;
+    tempArgv = & str1;
+
+    std::cout << argc << std::endl;
+
+    auto tempArgc = argc;
+    tempArgc = 1;
+
+    std::cout << "Main thread: " << std::this_thread::get_id() << std::endl;
+
+    std::future < void > fn = std::async (std::launch::async, startGUI, tempArgc, tempArgv);
+    // fn.get();
+
     DronecodeSDK dc;
     std::string connection_url;
     ConnectionResult connection_result;
@@ -112,7 +204,6 @@ int main(int argc, char **argv)
     // Locate path of QGC Sample plan
     std::string qgc_plan = "../../../plugins/mission/north.plan";
 
-   
     if (argc != 2 && argc != 3) {
         usage(argv[0]);
         return 1;
@@ -127,13 +218,13 @@ int main(int argc, char **argv)
     std::cout << "Importing mission from mission plan: " << qgc_plan << std::endl;
 
     {
-        auto prom = std::make_shared<std::promise<void>>();
-        auto future_result = prom->get_future();
+        auto prom = std::make_shared < std::promise < void >> ();
+        auto future_result = prom -> get_future();
 
         std::cout << "Waiting to discover system..." << std::endl;
         dc.register_on_discover([prom](uint64_t uuid) {
             std::cout << "Discovered system with UUID: " << uuid << std::endl;
-            prom->set_value();
+            prom -> set_value();
         });
 
         connection_result = dc.add_any_connection(connection_url);
@@ -151,34 +242,29 @@ int main(int argc, char **argv)
     // We don't need to specify the UUID if it's only one system anyway.
     // If there were multiple, we could specify it with:
     // dc.system(uint64_t uuid);
-    System &system = dc.system();
-    auto action = std::make_shared<Action>(system);
-    auto mission = std::make_shared<Mission>(system);
-    auto telemetry = std::make_shared<Telemetry>(system);
+    System & system = dc.system();
+    auto action = std::make_shared < Action > (system);
+    auto mission = std::make_shared < Mission > (system);
+    auto telemetry = std::make_shared < Telemetry > (system);
 
-
-    const Telemetry::Result set_rate_result = telemetry->set_rate_position(1.0);
-    if(set_rate_result != Telemetry::Result::SUCCESS){
+    const Telemetry::Result set_rate_result = telemetry -> set_rate_position(1.0);
+    if (set_rate_result != Telemetry::Result::SUCCESS) {
         std::cout << "Setting rate failed: " << std::endl;
-        return 1; 
+        return 1;
     }
 
-    std::ofstream myFile; 
+    std::ofstream myFile;
     myFile.open("testData.csv");
     myFile << "Time, Altitude, Latitude, Longitude, Absolute_Altitude, \n";
-    int countTelemetry = 0;
-     // Setting up the callback to monitor lat and longitude
-    telemetry->position_async([&](Telemetry::Position position){
-        myFile << getTimeStr() << "," << (system.get_uuid())%100000 << "," << position.relative_altitude_m << "," << position.latitude_deg << "," << position.longitude_deg << "," << position.absolute_altitude_m << ", \n"; 
-        std::string runFile = "python ./testingPython.py " + std::to_string((system.get_uuid())%100000) + " " + std::to_string(countTelemetry) + " " + std::to_string(position.latitude_deg) + " " + std::to_string(position.longitude_deg);
-        int n = runFile.length();
-        char char_array[n+1];
-        strcpy(char_array, runFile.c_str());
-        std::system(char_array);
-        countTelemetry += 1;
+    // int countTelemetry = 0;
+    // Setting up the callback to monitor lat and longitude
+    telemetry -> position_async([ & ](Telemetry::Position position) {
+        myFile << getTimeStr() << "," << (system.get_uuid()) % 100000 << "," << position.relative_altitude_m << "," << position.latitude_deg << "," << position.longitude_deg << "," << position.absolute_altitude_m << ", \n";
+        std::cout << "stopTheDrone " << stopTheDrone << std::endl;
+        std::cout << "continueTheDrone " << continueTheDrone << std::endl;
     });
 
-    while (!telemetry->health_all_ok()) {
+    while (!telemetry -> health_all_ok()) {
         std::cout << "Waiting for system to be ready" << std::endl;
         sleep_for(seconds(1));
     }
@@ -194,16 +280,18 @@ int main(int argc, char **argv)
         std::cerr << "No missions! Exiting..." << std::endl;
         exit(EXIT_FAILURE);
     }
-    std::cout << "Found " << mission_items.size() << " mission items in the given QGC plan."
-              << std::endl;
+    std::cout << "Found " << mission_items.size() << " mission items in the given QGC plan." <<
+        std::endl;
 
     {
         std::cout << "Uploading mission..." << std::endl;
         // Wrap the asynchronous upload_mission function using std::future.
-        auto prom = std::make_shared<std::promise<Mission::Result>>();
-        auto future_result = prom->get_future();
-        mission->upload_mission_async(mission_items,
-                                      [prom](Mission::Result result) { prom->set_value(result); });
+        auto prom = std::make_shared < std::promise < Mission::Result >> ();
+        auto future_result = prom -> get_future();
+        mission -> upload_mission_async(mission_items,
+            [prom](Mission::Result result) {
+                prom -> set_value(result);
+            });
 
         const Mission::Result result = future_result.get();
         handle_mission_err_exit(result, "Mission upload failed: ");
@@ -211,38 +299,26 @@ int main(int argc, char **argv)
     }
 
     std::cout << "Arming..." << std::endl;
-    const Action::Result arm_result = action->arm();
+    const Action::Result arm_result = action -> arm();
     handle_action_err_exit(arm_result, "Arm failed: ");
     std::cout << "Armed." << std::endl;
 
     // Before starting the mission subscribe to the mission progress.
-    mission->subscribe_progress([&](int current, int total) {
+    mission -> subscribe_progress([ & ](int current, int total) {
         std::cout << "Mission status update: " << current << " / " << total << std::endl;
-
-        if(current == 4){
-            pauseMission(mission);
-            sleep_for(seconds(5));
-            continueMission(mission);
-        //     std::cout << "Pausing mission." << std::endl;
-        //     auto promi = std::make_shared<std::promise<Mission::Result>>();
-        //     auto future2_result = promi->get_future();
-        //     mission->pause_mission_async([promi](Mission::Result result) {
-        //     promi->set_value(result);
-        //     std::cout << "Paused mission." << std::endl;
-        // });
-
-        // const Mission::Result result = future2_result.get();
-        // handle_mission_err_exit(result, "Mission pause failed: ");
+        if (stopTheDrone == 1) {
+            pause_and_resume(mission);
+            stopTheDrone = 0;
+            std::cout << "This is after running pauseMission(mission)" << std::endl;
         }
-
     });
 
     {
         std::cout << "Starting mission." << std::endl;
-        auto prom = std::make_shared<std::promise<Mission::Result>>();
-        auto future_result = prom->get_future();
-        mission->start_mission_async([prom](Mission::Result result) {
-            prom->set_value(result);
+        auto prom = std::make_shared < std::promise < Mission::Result >> ();
+        auto future_result = prom -> get_future();
+        mission -> start_mission_async([prom](Mission::Result result) {
+            prom -> set_value(result);
             std::cout << "Started mission." << std::endl;
         });
 
@@ -250,7 +326,7 @@ int main(int argc, char **argv)
         handle_mission_err_exit(result, "Mission start failed: ");
     }
 
-    while (!mission->mission_finished()) {
+    while (!mission -> mission_finished()) {
         sleep_for(seconds(1));
     }
 
@@ -260,10 +336,10 @@ int main(int argc, char **argv)
     {
         // Mission complete. Command RTL to go home.
         std::cout << "Commanding RTL..." << std::endl;
-        const Action::Result result = action->return_to_launch();
+        const Action::Result result = action -> return_to_launch();
         if (result != Action::Result::SUCCESS) {
-            std::cout << "Failed to command RTL (" << Action::result_str(result) << ")"
-                      << std::endl;
+            std::cout << "Failed to command RTL (" << Action::result_str(result) << ")" <<
+                std::endl;
         } else {
             std::cout << "Commanded RTL." << std::endl;
         }
@@ -272,30 +348,30 @@ int main(int argc, char **argv)
     return 0;
 }
 
-inline void handle_action_err_exit(Action::Result result, const std::string &message)
-{
+inline void handle_action_err_exit(Action::Result result,
+    const std::string & message) {
     if (result != Action::Result::SUCCESS) {
-        std::cerr << ERROR_CONSOLE_TEXT << message << Action::result_str(result)
-                  << NORMAL_CONSOLE_TEXT << std::endl;
+        std::cerr << ERROR_CONSOLE_TEXT << message << Action::result_str(result) <<
+            NORMAL_CONSOLE_TEXT << std::endl;
         exit(EXIT_FAILURE);
     }
 }
 
-inline void handle_mission_err_exit(Mission::Result result, const std::string &message)
-{
+inline void handle_mission_err_exit(Mission::Result result,
+    const std::string & message) {
     if (result != Mission::Result::SUCCESS) {
-        std::cerr << ERROR_CONSOLE_TEXT << message << Mission::result_str(result)
-                  << NORMAL_CONSOLE_TEXT << std::endl;
+        std::cerr << ERROR_CONSOLE_TEXT << message << Mission::result_str(result) <<
+            NORMAL_CONSOLE_TEXT << std::endl;
         exit(EXIT_FAILURE);
     }
 }
 
 // Handles connection result
-inline void handle_connection_err_exit(ConnectionResult result, const std::string &message)
-{
+inline void handle_connection_err_exit(ConnectionResult result,
+    const std::string & message) {
     if (result != ConnectionResult::SUCCESS) {
-        std::cerr << ERROR_CONSOLE_TEXT << message << connection_result_str(result)
-                  << NORMAL_CONSOLE_TEXT << std::endl;
+        std::cerr << ERROR_CONSOLE_TEXT << message << connection_result_str(result) <<
+            NORMAL_CONSOLE_TEXT << std::endl;
         exit(EXIT_FAILURE);
     }
 }

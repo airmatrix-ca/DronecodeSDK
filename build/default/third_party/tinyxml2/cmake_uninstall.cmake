@@ -1,8 +1,8 @@
-if(NOT EXISTS "/home/ayaan/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt")
-  message(FATAL_ERROR "Cannot find install manifest: /home/ayaan/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt")
-endif(NOT EXISTS "/home/ayaan/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt")
+if(NOT EXISTS "/home/airmatrix/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt")
+  message(FATAL_ERROR "Cannot find install manifest: /home/airmatrix/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt")
+endif(NOT EXISTS "/home/airmatrix/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt")
 
-file(READ "/home/ayaan/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt" files)
+file(READ "/home/airmatrix/Documents/SDKs/DronecodeSDK/build/default/third_party/tinyxml2/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 foreach(file ${files})
   message(STATUS "Uninstalling $ENV{DESTDIR}${file}")

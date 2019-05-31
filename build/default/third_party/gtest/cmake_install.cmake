@@ -1,4 +1,4 @@
-# Install script for directory: /home/ayaan/Documents/SDKs/DronecodeSDK/third_party/gtest
+# Install script for directory: /home/airmatrix/Documents/SDKs/DronecodeSDK/third_party/gtest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ayaan/Documents/SDKs/DronecodeSDK/build/default/third_party/gtest/googlemock/cmake_install.cmake")
+  include("/home/airmatrix/Documents/SDKs/DronecodeSDK/build/default/third_party/gtest/googlemock/cmake_install.cmake")
 
 endif()
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/ayaan/Documents/SDKs/DronecodeSDK/third_party/zlib
+# Install script for directory: /home/airmatrix/Documents/SDKs/DronecodeSDK/third_party/zlib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,4 +1,4 @@
-# Install script for directory: /home/ayaan/Documents/SDKs/DronecodeSDK/plugins/mission/third_party/json11
+# Install script for directory: /home/airmatrix/Documents/SDKs/DronecodeSDK/plugins/mission/third_party/json11
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

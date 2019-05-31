@@ -582,7 +582,7 @@ rule CXX_EXECUTABLE_LINKER__integration_tests_runner
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake -H/home/ayaan/Documents/SDKs/DronecodeSDK -B/home/ayaan/Documents/SDKs/DronecodeSDK/build/default
+  command = /usr/bin/cmake -H/home/airmatrix/Documents/SDKs/DronecodeSDK -B/home/airmatrix/Documents/SDKs/DronecodeSDK/build/default
   description = Re-running CMake...
   generator = 1
 
