@@ -4,8 +4,15 @@ project(testDrones)
 
 find_package(Threads REQUIRED)
 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GTKMM gtkmm-3.0)
+link_directories( ${GTKMM_LIBRARY_DIRS} )
+include_directories( ${GTKMM_INCLUDE_DIRS} )
+
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pthread")
+
 if(NOT MSVC)
-    add_definitions("-std=c++11 -Wall -Wextra -Werror")
+    add_definitions("-std=c++11 -Wextra -Werror")
     # Line below required if /usr/local/include is not in your default includes
     include_directories(/usr/local/include)
     # Line below required if /usr/local/lib is not in your default linker path
@@ -26,5 +33,6 @@ target_link_libraries(testDrones
     dronecode_sdk_mission
     dronecode_sdk_action
     ${CMAKE_THREAD_LIBS_INIT}
+    ${GTKMM_LIBRARIES}
 )
 

@@ -25,43 +25,24 @@
  */
 
 #include <dronecode_sdk/dronecode_sdk.h>
-
 #include <dronecode_sdk/plugins/action/action.h>
-
 #include <dronecode_sdk/plugins/mission/mission.h>
-
 #include <dronecode_sdk/plugins/telemetry/telemetry.h>
-
 #include <functional>
-
 #include <stdlib.h>
-
 #include <future>
-
 #include <iostream>
-
 #include <memory>
-
 #include <string>
-
 #include <chrono>
-
 #include <ctime>
-
 #include <fstream>
-
 #include <bits/stdc++.h>
-
 #include "gtkmm_buttons.hpp"
-
 #include <gtkmm-3.0/gtkmm.h>
-
 #include <gtkmm-3.0/gtkmm/window.h>
-
 #include <gtkmm-3.0/gtkmm/button.h>
-
 #include <gtkmm-3.0/gtkmm/box.h>
-
 #include <gtkmm-3.0/gtkmm/application.h>
 
 # define ERROR_CONSOLE_TEXT "\033[31m" // Turn text on console red
@@ -85,8 +66,6 @@ inline void handle_connection_err_exit(ConnectionResult result,
 int stopTheDrone = 0;
 int continueTheDrone = 0;
 
-static bool pause_already_done = false;
-
 void usage(std::string bin_name) {
     std::cout << NORMAL_CONSOLE_TEXT << "Usage : " << bin_name <<
         " <connection_url> [path of QGC Mission plan]" << std::endl <<
@@ -105,25 +84,22 @@ std::string getTimeStr() {
     return s;
 }
 
-void pause_and_resume(std::shared_ptr < Mission > mission) {
-    {
-        // We pause inside the callback and hope not to get blocked.
-        auto prom = std::make_shared < std::promise < void >> ();
-        auto future_result = prom -> get_future();
-        mission -> pause_mission_async([prom](Mission::Result result) {
-            prom -> set_value();
-            std::cout << "Paused mission. (5)" << std::endl;
-        });
-        future_result.get();
-    }
+void pause_and_resume(std::shared_ptr <Mission> mission) {
+    while(true){
+        if(stopTheDrone == 1){
+        // We pause
+            auto prom = std::make_shared < std::promise < void >> ();
+            auto future_result = prom -> get_future();
+            mission -> pause_mission_async([prom](Mission::Result result) {
+                prom -> set_value();
+                std::cout << "Paused mission. (5)" << std::endl;
+            });
+            future_result.get();
+            stopTheDrone = 0;
+        }
 
-    while (continueTheDrone != 1) {
-        std::cout << "Waiting for the signal to continue.. " << std::endl;
-    }
-
-    if (continueTheDrone == 1) {
+        if (continueTheDrone == 1) {
         // Then continue.
-        {
             auto prom = std::make_shared < std::promise < void >> ();
             auto future_result = prom -> get_future();
             mission -> start_mission_async(
@@ -132,8 +108,8 @@ void pause_and_resume(std::shared_ptr < Mission > mission) {
                 });
             future_result.get();
             std::cout << "Resumed mission. (5)" << std::endl;
+            continueTheDrone = 0;
         }
-        continueTheDrone = 0;
     }
 }
 
@@ -175,8 +151,7 @@ void Buttons::when_paused() {
 }
 void Buttons::when_continued() {
     std::cout << "Continue Pressed before " << continueTheDrone << std::endl;
-    if (stopTheDrone == 1)
-        continueTheDrone = 1;
+    continueTheDrone = 1;
     std::cout << "Continue changed to " << continueTheDrone << std::endl;
 }
 
@@ -194,8 +169,7 @@ int main(int argc, char ** argv) {
 
     std::cout << "Main thread: " << std::this_thread::get_id() << std::endl;
 
-    std::future < void > fn = std::async (std::launch::async, startGUI, tempArgc, tempArgv);
-    // fn.get();
+    std::future < void > fn = std::async (std::launch::async, startGUI, 1, tempArgv);
 
     DronecodeSDK dc;
     std::string connection_url;
@@ -271,6 +245,8 @@ int main(int argc, char ** argv) {
 
     std::cout << "System ready" << std::endl;
 
+    
+
     // Import Mission items from QGC plan
     Mission::mission_items_t mission_items;
     Mission::Result import_res = Mission::import_qgroundcontrol_mission(mission_items, qgc_plan);
@@ -306,12 +282,14 @@ int main(int argc, char ** argv) {
     // Before starting the mission subscribe to the mission progress.
     mission -> subscribe_progress([ & ](int current, int total) {
         std::cout << "Mission status update: " << current << " / " << total << std::endl;
-        if (stopTheDrone == 1) {
-            pause_and_resume(mission);
-            stopTheDrone = 0;
-            std::cout << "This is after running pauseMission(mission)" << std::endl;
-        }
+        // if (stopTheDrone == 1) {
+        //     pause_and_resume(mission);
+        //     stopTheDrone = 0;
+        //     std::cout << "This is after running pauseMission(mission)" << std::endl;
+        // }
     });
+
+    auto t1 = std::async(std::launch::async, pause_and_resume, mission);
 
     {
         std::cout << "Starting mission." << std::endl;

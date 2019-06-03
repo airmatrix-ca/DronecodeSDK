@@ -23,11 +23,26 @@
 #include <ctime>
 #include <fstream>
 
+#include "gtkmm_buttons.hpp"
+
+#include <gtkmm-3.0/gtkmm.h>
+
+#include <gtkmm-3.0/gtkmm/window.h>
+
+#include <gtkmm-3.0/gtkmm/button.h>
+
+#include <gtkmm-3.0/gtkmm/box.h>
+
+#include <gtkmm-3.0/gtkmm/application.h>
+
 using namespace dronecode_sdk;
 using namespace std::this_thread;
 using namespace std::chrono;
 
-static void complete_mission(std::string qgc_plan, System &system);
+static void complete_mission(std::string qgc_plan, System &system, char* str1);
+
+int stopTheDrone = 0;
+int continueTheDrone = 0;
 
 #define ERROR_CONSOLE_TEXT "\033[31m" // Turn text on console red
 #define TELEMETRY_CONSOLE_TEXT "\033[34m" // Turn text on console blue
@@ -57,6 +72,83 @@ std::string getTimeStr(){
     std::string s(30, '\0');
     strftime(&s[0], s.size(), "%Y-%m-%d %H:%M:%S", std::localtime(&now));
     return s;
+}
+
+
+void pause_and_resume(std::shared_ptr <Mission> mission) {
+    {
+        // We pause inside the callback and hope not to get blocked.
+        auto prom = std::make_shared < std::promise < void >> ();
+        auto future_result = prom -> get_future();
+        mission -> pause_mission_async([prom](Mission::Result result) {
+            prom -> set_value();
+            std::cout << "Paused mission. (5)" << std::endl;
+        });
+        future_result.get();
+    }
+
+    while (continueTheDrone != 1) {
+        std::cout << "Waiting for the signal to continue.. " << std::endl;
+    }
+
+    if (continueTheDrone == 1) {
+        // Then continue.
+        {
+            auto prom = std::make_shared < std::promise < void >> ();
+            auto future_result = prom -> get_future();
+            mission -> start_mission_async(
+                [prom](Mission::Result result) {
+                    prom -> set_value();
+                });
+            future_result.get();
+            std::cout << "Resumed mission. (5)" << std::endl;
+        }
+        continueTheDrone = 0;
+    }
+}
+
+
+Buttons::Buttons() {
+    button1.add_pixlabel("info.xpm", "Pause");
+    button2.add_pixlabel("info.xpm", "Continue");
+
+    set_title("AirMatrix");
+    set_border_width(10);
+    add(box1);
+
+    box1.pack_start(button1);
+    box1.pack_start(button2);
+
+    button1.signal_clicked().connect(sigc::mem_fun( * this, & Buttons::when_paused));
+    button2.signal_clicked().connect(sigc::mem_fun( * this, & Buttons::when_continued));
+
+    show_all_children();
+}
+
+Buttons::~Buttons() {}
+
+void Buttons::on_button_clicked() {}
+
+void startGUI(int argc, char ** argv) {
+    std::cout << "Async Thread: " << std::this_thread::get_id() << std::endl;
+    auto app = Gtk::Application::create(argc, argv, "org.gtkmm.test");
+    //Shows the window and returns when it is closed.
+    std::cout << "Aldo, you sleepy? " << std::endl;
+    Buttons buttons;
+    app -> run(buttons);
+    std::cout << "GUI STOPPED" << std::endl;
+}
+
+void Buttons::when_paused() {
+    std::cout << "Paused Pressed before " << stopTheDrone << std::endl;
+    stopTheDrone = 1;
+    std::cout << "Paused changed to " << stopTheDrone << std::endl;
+}
+void Buttons::when_continued() {
+    std::cout << "Continue Pressed before " << continueTheDrone << std::endl;
+    if (stopTheDrone == 1)
+        continueTheDrone = 1;
+    std::cout << "Continue changed to " << continueTheDrone << std::endl;
 }
 
 int main(int argc, char *argv[])
@@ -108,7 +200,7 @@ int main(int argc, char *argv[])
     for (auto uuid : dc.system_uuids()) {
         System &system = dc.system(uuid);
         // complete_mission(std::ref(qgc_plan), std::ref(system));
-        std::thread t(&complete_mission, argv[numberOfPaths], std::ref(system));
+        std::thread t(&complete_mission, argv[numberOfPaths], std::ref(system), argv[0]);
         threads.push_back(std::move(t));        // Instead of copying, move t into the vector (less expensive)
         numberOfPaths += 1;
     }
@@ -119,9 +211,20 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-
-void complete_mission(std::string qgc_plan, System &system)
+void complete_mission(std::string qgc_plan, System &system, char* str1)
 {
+    char ** tempArgv;
+    tempArgv = & str1;
+    int argc = 1;
+
+    std::cout << argc << std::endl;
+
+    auto tempArgc = argc;
+
+    std::cout << " thread id: " << std::this_thread::get_id() << std::endl;
+
+    std::future <void> fn = std::async (std::launch::async, startGUI, tempArgc, tempArgv);
+
     auto telemetry = std::make_shared<Telemetry>(system);
     auto action = std::make_shared<Action>(system);
     auto mission = std::make_shared<Mission>(system);
@@ -141,17 +244,17 @@ void complete_mission(std::string qgc_plan, System &system)
     std::ofstream myFile; 
     myFile.open((std::to_string(system.get_uuid()%100000) + ".csv"));
     myFile << "Time, Vehicle_ID, Altitude, Latitude, Longitude, Absolute_Altitude, \n";
-    int countTelemetry = 0;
-    
+    // int countTelemetry = 0;
+
     // Setting up the callback to monitor lat and longitude
     telemetry->position_async([&](Telemetry::Position position){
         myFile << getTimeStr() << "," << (system.get_uuid())%100000 << "," << position.relative_altitude_m << "," << position.latitude_deg << "," << position.longitude_deg << "," << position.absolute_altitude_m << ", \n"; 
-        std::string runFile = "python ./testingPython.py " + std::to_string((system.get_uuid())%100000) + " " + std::to_string(countTelemetry) + " " + std::to_string(position.latitude_deg) + " " + std::to_string(position.longitude_deg);
-        int n = runFile.length();
-        char char_array[n+1];
-        strcpy(char_array, runFile.c_str());
-        std::system(char_array);
-        countTelemetry += 1;
+        // std::string runFile = "python ./testingPython.py " + std::to_string((system.get_uuid())%100000) + " " + std::to_string(countTelemetry) + " " + std::to_string(position.latitude_deg) + " " + std::to_string(position.longitude_deg);
+        // int n = runFile.length();
+        // char char_array[n+1];
+        // strcpy(char_array, runFile.c_str());
+        // std::system(char_array);
+        // countTelemetry += 1;
     });
 
     // Check if vehicle is ready to arm
@@ -193,6 +296,13 @@ void complete_mission(std::string qgc_plan, System &system)
     // Before starting the mission subscribe to the mission progress.
     mission->subscribe_progress([](int current, int total) {
         std::cout << "Mission status update: " << current << " / " << total << std::endl;
+
+        if (stopTheDrone == 1) {
+            pause_and_resume(mission);
+            stopTheDrone = 0;
+            std::cout << "This is after running pauseMission(mission)" << std::endl;
+        }
+
     });
 
     {
