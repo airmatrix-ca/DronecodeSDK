@@ -35,10 +35,19 @@ using namespace std::chrono;
 
 static void complete_mission(std::string qgc_plan, System & system, char * str1);
 
+/*
+Stop the Drones is what determines whether to stop the drone or not
+Continue the Drone determines whether the drone can continue moving
+
+Both of these are vectors because we can have more than one drones
+
+They are made global because it is just for testing and because it makes easy to implement the functionality.
+    - Easy way to communicate between the buttons and the main function
+*/
 std::vector < int > stopTheDrones;
 std::vector < int > continueTheDrones;
 
-#define ERROR_CONSOLE_TEXT "\033[31m" // Turn text on console red
+# define ERROR_CONSOLE_TEXT "\033[31m" // Turn text on console red
 # define TELEMETRY_CONSOLE_TEXT "\033[34m" // Turn text on console blue
 # define NORMAL_CONSOLE_TEXT "\033[0m" // Restore normal console colour
 
@@ -62,6 +71,8 @@ void usage(std::string bin_name) {
         "For example, to connect to the simulator use URL: udp://:14540" << std::endl;
 }
 
+// This function is just to return the current time. This is used when storing telemetry data
+
 std::string getTimeStr() {
     time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
     std::string s(30, '\0');
@@ -69,11 +80,21 @@ std::string getTimeStr() {
     return s;
 }
 
+/*
+This function pauses and resumes the mission of the drones. 
+This function takes in mission and vehicle ID as the parameters to identify which vehicle's mission to pause
+
+This function is running independent of main thread and is just a while loop that continuously checks if the buttons are pressed
+This is not an efficient way of checking if the buttons are pressed but is easy to implement (Again, it is just for testing)
+*/
 void pause_and_resume(std::shared_ptr < Mission > mission, long vehicleID) {
+
+    // This is to get the last digit of uuid number, which in our case starts with 1 
+    // Because the uuid's last digit starts with 1 and the vectors start with 0, when accessing certain drone's property, we need to 
+    // access it by: (id-1)
     int id = vehicleID % 5283920058631409230; 
 
     while (true) {
-        std::cout << "vehicleId " << id << std::endl;
         if (stopTheDrones[id - 1] == 1) {
             // We pause
             auto prom = std::make_shared < std::promise < void >> ();
@@ -101,6 +122,7 @@ void pause_and_resume(std::shared_ptr < Mission > mission, long vehicleID) {
     }
 }
 
+// This is just making the buttons and numbering them 
 Buttons::Buttons(int nums) {
 
     button = new Gtk::Button[nums];
@@ -129,6 +151,7 @@ Buttons::Buttons(int nums) {
 
 Buttons::~Buttons() {}
 
+// This is what makes the window and the application where we find all those buttons
 void startGUI(int argc, char ** argv, int numOfButtons) {
     std::cout << "Async Thread: " << std::this_thread::get_id() << std::endl;
     auto app = Gtk::Application::create(argc, argv, "org.gtkmm.test");
@@ -138,10 +161,19 @@ void startGUI(int argc, char ** argv, int numOfButtons) {
     std::cout << "GUI STOPPED" << std::endl;
 }
 
+/* 
+This function gets called when paused button is pressed
+This function also takes a string value that gives the information of which drone is getting paused
+*/
 void Buttons::when_paused(Glib::ustring data) {
     std::cout << "Paused Pressed " << data << std::endl;
     stopTheDrones[std::stoi(data)] = 1;
 }
+
+/* 
+This function gets called when continue button is pressed
+This function also takes a string value that gives the information of which drone is getting continued
+*/
 void Buttons::when_continued(Glib::ustring data) {
     std::cout << "Continue Pressed " << data << std::endl;
     continueTheDrones[std::stoi(data)] = 1;
@@ -154,6 +186,17 @@ int main(int argc, char * argv[]) {
         return 1;
     }
 
+/*
+All this code until the startGUI function is launched asynchronously is to activate and start the GUI and the buttons
+Application opens up when we run ./testDrones. The application will open up even if the drone is not ready to fly or 
+even if the mission hasn't been uploaded. This can be changed and made it so it only opens up when at least one udp connection is 
+specified and at least one mission file is sent in by changing above if statement (for example: changing the if statement's condition to 
+
+if(argc == 2){
+    std::cerr << ERROR_CONSOLE_TEXT << "Make sure you've specified connection and have typed the path of mission pile " << NORMAL_CONSOLE_TEXT << std::endl;
+    return 1;
+}
+*/
     char * str1;
     str1 = argv[0];
     char ** tempArgv;
@@ -162,13 +205,12 @@ int main(int argc, char * argv[]) {
     tempArgc = 1;
 
     DronecodeSDK dc;
-    int total_ports = argc / 2 + 1; // There must be half udp ports and half paths to plan files
+    int total_ports = argc / 2 + 1;         // There must be half udp ports and half paths to plan files
 
-    std::cout << "Main thread: " << std::this_thread::get_id() << std::endl;
-
+    // Launching GUI asynchronously
     std::future < void > fn = std::async (std::launch::async, startGUI, 1, tempArgv, (argc / 2) * 2);
 
-    // Initialize the vectors stop and continue the array with 0
+    // Initialize the vectors "stop and continue the array" with 0
     for (int i = 0; i < total_ports; i++) {
         stopTheDrones.push_back(0);
         continueTheDrones.push_back(0);
@@ -237,11 +279,11 @@ void complete_mission(std::string qgc_plan, System & system, char * str1) {
 
     std::cout << "Importing mission from mission plan: " << qgc_plan << std::endl;
 
+    // This makes a csv file and stores the telemetry data. A different csv file is made for different drones
     std::ofstream myFile;
     myFile.open((std::to_string(system.get_uuid() % 100000) + ".csv"));
     myFile << "Time, Vehicle_ID, Altitude, Latitude, Longitude, Absolute_Altitude, \n";
-    // int countTelemetry = 0;
-
+ 
     // Setting up the callback to monitor lat and longitude
     telemetry -> position_async([ & ](Telemetry::Position position) {
         myFile << getTimeStr() << "," << (system.get_uuid()) % 100000 << "," << position.relative_altitude_m << "," << position.latitude_deg << "," << position.longitude_deg << "," << position.absolute_altitude_m << ", \n";
@@ -291,6 +333,7 @@ void complete_mission(std::string qgc_plan, System & system, char * str1) {
     });
 
     // std::string threadNum = std::to_string((system.get_uuid())%100000);
+    // Checking if buttons have been pressed independently from main thread
     auto t1 = std::async (std::launch::async, pause_and_resume, mission, (system.get_uuid()));
 
     {
