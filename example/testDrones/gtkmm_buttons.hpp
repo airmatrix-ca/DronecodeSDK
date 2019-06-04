@@ -7,14 +7,16 @@
 
 class Buttons : public Gtk::Window
 {
+private:
+int nums;
+
 public:
-Buttons();
+Buttons(int nums = 3);
 virtual ~Buttons();
 
 protected:
-void on_button_clicked();
-void when_paused();
-void when_continued();
-Gtk::Button button1, button2;
+void when_paused(Glib::ustring data);
+void when_continued(Glib::ustring data);
+Gtk::Button *button;
 Gtk::Box box1;
 };
