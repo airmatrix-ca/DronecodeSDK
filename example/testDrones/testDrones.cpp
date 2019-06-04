@@ -6,49 +6,27 @@
 // Shusil Shapkota
 
 #include <dronecode_sdk/dronecode_sdk.h>
-
 #include <dronecode_sdk/plugins/action/action.h>
-
 #include <dronecode_sdk/plugins/mission/mission.h>
-
 #include <dronecode_sdk/plugins/telemetry/telemetry.h>
-
 #include <cstdint>
-
 #include <stdlib.h>
-
 #include <iostream>
-
 #include <thread>
-
 #include <chrono>
-
 #include <functional>
-
 #include <future>
-
 #include <memory>
-
 #include <string>
-
 #include <bits/stdc++.h>
-
 #include <ctime>
-
 #include <fstream>
-
 #include <vector>
-
 #include "gtkmm_buttons.hpp"
-
 #include <gtkmm-3.0/gtkmm.h>
-
 #include <gtkmm-3.0/gtkmm/window.h>
-
 #include <gtkmm-3.0/gtkmm/button.h>
-
 #include <gtkmm-3.0/gtkmm/box.h>
-
 #include <gtkmm-3.0/gtkmm/application.h>
 
 using namespace dronecode_sdk;
