@@ -123,11 +123,10 @@ void pause_and_resume(std::shared_ptr < Mission > mission, std::shared_ptr < Act
 
         if (returnToLaunch[id-1] == 1) {
             const Action::Result land_result = action->return_to_launch();
-            const Action::Result arm_result = action->set_return_to_launch_return_altitude(5.0);
-            // const Action::set_return_to_launch_return_altitude(15.0);
+            const Action::Result arm_result = action->set_return_to_launch_return_altitude(10.0);
             if (land_result != Action::Result::SUCCESS){
-                // Landing failed
-                std::cout << "Landing Failed " << std::endl;
+                // RTL failed
+                std::cout << "RTL Failed " << std::endl;
             }
 
         }
