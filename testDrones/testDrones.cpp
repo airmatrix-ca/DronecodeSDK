@@ -2,7 +2,6 @@
 //./multiple_drones udp://:14540 udp://:14541
 //
 // Author: Julian Oes <julian@oes.ch>
-// Author: Shayaan Haider (via Slack)
 // Shusil Shapkota
 
 #include <dronecode_sdk/dronecode_sdk.h>
@@ -47,6 +46,7 @@ They are made global because it is just for testing and because it makes easy to
 std::vector < int > stopTheDrones;
 std::vector < int > continueTheDrones;
 std::vector < int > returnToLaunch;
+std::vector < int > landDrones;
 
 # define ERROR_CONSOLE_TEXT "\033[31m" // Turn text on console red
 # define TELEMETRY_CONSOLE_TEXT "\033[34m" // Turn text on console blue
@@ -121,14 +121,22 @@ void pause_and_resume(std::shared_ptr < Mission > mission, std::shared_ptr < Act
             continueTheDrones[id - 1] = 0;
         }
 
-        if (returnToLaunch[id-1] == 1) {
+        if (returnToLaunch[id - 1] == 1) {
             const Action::Result land_result = action->return_to_launch();
             const Action::Result arm_result = action->set_return_to_launch_return_altitude(10.0);
             if (land_result != Action::Result::SUCCESS){
                 // RTL failed
                 std::cout << "RTL Failed " << std::endl;
             }
+        returnToLaunch[id - 1] = 0;
+        }
 
+        if (landDrones[id - 1] == 1){
+            const Action::Result land_result = action->land();
+            if (land_result != Action::Result::SUCCESS) {
+                // std::cout << "Land failed:" << Action::result_str(land_result) << std::endl;
+            }
+        landDrones[id - 1] = 0;
         }
     }
 }
@@ -138,11 +146,12 @@ Buttons::Buttons(int nums) {
 
     button = new Gtk::Button[nums];
 
-    if (nums % 3 == 0) {
-        for (int i = 0; i < nums; i += 3) {
+    if (nums % 4 == 0) {
+        for (int i = 0; i < nums; i += 4) {
             button[i].add_pixlabel("info.xpm", ("Pause Drone: " + std::to_string(i / 2)));
             button[i + 1].add_pixlabel("info.xpm", ("Continue Drone: " + std::to_string(i / 2)));
             button[i + 2].add_pixlabel("info.xpm", ("Return To Launch: " + std::to_string(i / 2)));
+            button[i + 3].add_pixlabel("info.xpm", ("Land Drone: " + std::to_string(i / 2)));
         }
     }
 
@@ -154,10 +163,11 @@ Buttons::Buttons(int nums) {
         box1.pack_start(button[i]);
     }
 
-    for (int i = 0; i < nums; i += 3) {
+    for (int i = 0; i < nums; i += 4) {
         button[i].signal_clicked().connect(sigc::bind < Glib::ustring > (sigc::mem_fun( * this, & Buttons::when_paused), std::to_string(i / 2)));
         button[i + 1].signal_clicked().connect(sigc::bind < Glib::ustring > (sigc::mem_fun( * this, & Buttons::when_continued), std::to_string(i / 2)));
         button[i + 2].signal_clicked().connect(sigc::bind < Glib::ustring > (sigc::mem_fun(*this, &Buttons::when_returning), std::to_string(i / 2)));
+        button[i + 3].signal_clicked().connect(sigc::bind < Glib::ustring > (sigc::mem_fun(*this, &Buttons::when_landing), std::to_string(i / 2)));
     }
     show_all_children();
 }
@@ -197,6 +207,11 @@ void Buttons::when_returning(Glib::ustring data){
     returnToLaunch[std::stoi(data)] =  1;
 }
 
+void Buttons::when_landing(Glib::ustring data){
+    std::cout << "Landing pressed " << data << std::endl;
+    landDrones[std::stoi(data)] =  1;
+}
+
 int main(int argc, char * argv[]) {
     if (argc == 1) {
         std::cerr << ERROR_CONSOLE_TEXT << "Please specify connection" << NORMAL_CONSOLE_TEXT <<
@@ -225,17 +240,15 @@ if(argc == 2){
     DronecodeSDK dc;
     int total_ports = argc / 2 + 1;         // There must be half udp ports and half paths to plan files
 
-    std::cout << "Temp Argv ------------------ " << tempArgv << std::endl;
-    std::cout << "Argc/2 * 3 ---------------------------------" << (argc / 2) * 3 << std::endl;
-
     // Launching GUI asynchronously
-    std::future < void > fn = std::async (std::launch::async, startGUI, 1, tempArgv, (argc / 2) * 3);
+    std::future < void > fn = std::async (std::launch::async, startGUI, 1, tempArgv, (argc / 2) * 4);
 
     // Initialize the vectors "stop and continue the array" with 0
     for (int i = 0; i < total_ports; i++) {
         stopTheDrones.push_back(0);
         continueTheDrones.push_back(0);
         returnToLaunch.push_back(0);
+        landDrones.push_back(0);
     }
 
     // the loop below adds the number of ports the sdk monitors.

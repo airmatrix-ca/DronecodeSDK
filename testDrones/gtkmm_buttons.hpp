@@ -11,13 +11,14 @@ private:
 int nums;
 
 public:
-Buttons(int nums = 3);
+Buttons(int nums = 4);
 virtual ~Buttons();
 
 protected:
 void when_paused(Glib::ustring data);
 void when_continued(Glib::ustring data);
 void when_returning(Glib::ustring data);
+void when_landing(Glib::ustring data);
 Gtk::Button *button;
 Gtk::Box box1;
 };
