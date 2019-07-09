@@ -46,6 +46,7 @@ They are made global because it is just for testing and because it makes easy to
 */
 std::vector < int > stopTheDrones;
 std::vector < int > continueTheDrones;
+std::vector < int > returnToLaunch;
 
 # define ERROR_CONSOLE_TEXT "\033[31m" // Turn text on console red
 # define TELEMETRY_CONSOLE_TEXT "\033[34m" // Turn text on console blue
@@ -87,7 +88,7 @@ This function takes in mission and vehicle ID as the parameters to identify whic
 This function is running independent of main thread and is just a while loop that continuously checks if the buttons are pressed
 This is not an efficient way of checking if the buttons are pressed but is easy to implement (Again, it is just for testing)
 */
-void pause_and_resume(std::shared_ptr < Mission > mission, long vehicleID) {
+void pause_and_resume(std::shared_ptr < Mission > mission, std::shared_ptr < Action > action , long vehicleID) {
 
     // This is to get the last digit of uuid number, which in our case starts with 1 
     // Because the uuid's last digit starts with 1 and the vectors start with 0, when accessing certain drone's property, we need to 
@@ -97,10 +98,10 @@ void pause_and_resume(std::shared_ptr < Mission > mission, long vehicleID) {
     while (true) {
         if (stopTheDrones[id - 1] == 1) {
             // We pause
-            auto prom = std::make_shared < std::promise < void >> ();
+            auto prom = std::make_shared < std::promise < Mission::Result >> ();
             auto future_result = prom -> get_future();
             mission -> pause_mission_async([prom](Mission::Result result) {
-                prom -> set_value();
+                prom -> set_value(result);
                 std::cout << "Paused mission. (5)" << std::endl;
             });
             future_result.get();
@@ -109,15 +110,26 @@ void pause_and_resume(std::shared_ptr < Mission > mission, long vehicleID) {
 
         if (continueTheDrones[id - 1] == 1) {
             // Then continue.
-            auto prom = std::make_shared < std::promise < void >> ();
+            auto prom = std::make_shared < std::promise < Mission::Result >> ();
             auto future_result = prom -> get_future();
             mission -> start_mission_async(
                 [prom](Mission::Result result) {
-                    prom -> set_value();
+                    prom -> set_value(result);
                 });
             future_result.get();
             std::cout << "Resumed mission. (5)" << std::endl;
             continueTheDrones[id - 1] = 0;
+        }
+
+        if (returnToLaunch[id-1] == 1) {
+            const Action::Result land_result = action->return_to_launch();
+            const Action::Result arm_result = action->set_return_to_launch_return_altitude(5.0);
+            // const Action::set_return_to_launch_return_altitude(15.0);
+            if (land_result != Action::Result::SUCCESS){
+                // Landing failed
+                std::cout << "Landing Failed " << std::endl;
+            }
+
         }
     }
 }
@@ -127,10 +139,11 @@ Buttons::Buttons(int nums) {
 
     button = new Gtk::Button[nums];
 
-    if (nums % 2 == 0) {
-        for (int i = 0; i < nums; i += 2) {
+    if (nums % 3 == 0) {
+        for (int i = 0; i < nums; i += 3) {
             button[i].add_pixlabel("info.xpm", ("Pause Drone: " + std::to_string(i / 2)));
             button[i + 1].add_pixlabel("info.xpm", ("Continue Drone: " + std::to_string(i / 2)));
+            button[i + 2].add_pixlabel("info.xpm", ("Return To Launch: " + std::to_string(i / 2)));
         }
     }
 
@@ -142,9 +155,10 @@ Buttons::Buttons(int nums) {
         box1.pack_start(button[i]);
     }
 
-    for (int i = 0; i < nums; i += 2) {
+    for (int i = 0; i < nums; i += 3) {
         button[i].signal_clicked().connect(sigc::bind < Glib::ustring > (sigc::mem_fun( * this, & Buttons::when_paused), std::to_string(i / 2)));
         button[i + 1].signal_clicked().connect(sigc::bind < Glib::ustring > (sigc::mem_fun( * this, & Buttons::when_continued), std::to_string(i / 2)));
+        button[i + 2].signal_clicked().connect(sigc::bind < Glib::ustring > (sigc::mem_fun(*this, &Buttons::when_returning), std::to_string(i / 2)));
     }
     show_all_children();
 }
@@ -179,6 +193,11 @@ void Buttons::when_continued(Glib::ustring data) {
     continueTheDrones[std::stoi(data)] = 1;
 }
 
+void Buttons::when_returning(Glib::ustring data){
+    std::cout << "RTL pressed " << data << std::endl;
+    returnToLaunch[std::stoi(data)] =  1;
+}
+
 int main(int argc, char * argv[]) {
     if (argc == 1) {
         std::cerr << ERROR_CONSOLE_TEXT << "Please specify connection" << NORMAL_CONSOLE_TEXT <<
@@ -207,13 +226,17 @@ if(argc == 2){
     DronecodeSDK dc;
     int total_ports = argc / 2 + 1;         // There must be half udp ports and half paths to plan files
 
+    std::cout << "Temp Argv ------------------ " << tempArgv << std::endl;
+    std::cout << "Argc/2 * 3 ---------------------------------" << (argc / 2) * 3 << std::endl;
+
     // Launching GUI asynchronously
-    std::future < void > fn = std::async (std::launch::async, startGUI, 1, tempArgv, (argc / 2) * 2);
+    std::future < void > fn = std::async (std::launch::async, startGUI, 1, tempArgv, (argc / 2) * 3);
 
     // Initialize the vectors "stop and continue the array" with 0
     for (int i = 0; i < total_ports; i++) {
         stopTheDrones.push_back(0);
         continueTheDrones.push_back(0);
+        returnToLaunch.push_back(0);
     }
 
     // the loop below adds the number of ports the sdk monitors.
@@ -334,7 +357,7 @@ void complete_mission(std::string qgc_plan, System & system, char * str1) {
 
     // std::string threadNum = std::to_string((system.get_uuid())%100000);
     // Checking if buttons have been pressed independently from main thread
-    auto t1 = std::async (std::launch::async, pause_and_resume, mission, (system.get_uuid()));
+    auto t1 = std::async (std::launch::async, pause_and_resume, mission, action, (system.get_uuid()));
 
     {
         std::cout << "Starting mission." << std::endl;

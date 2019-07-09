@@ -17,6 +17,7 @@ virtual ~Buttons();
 protected:
 void when_paused(Glib::ustring data);
 void when_continued(Glib::ustring data);
+void when_returning(Glib::ustring data);
 Gtk::Button *button;
 Gtk::Box box1;
 };
