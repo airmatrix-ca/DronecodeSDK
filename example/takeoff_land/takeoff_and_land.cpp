@@ -128,7 +128,7 @@ int main(int argc, char **argv)
     }
 
     // Let it hover for a bit before landing again.
-    sleep_for(seconds(10));
+    sleep_for(seconds(19));
 
     std::cout << "Landing..." << std::endl;
     const Action::Result land_result = action->land();
